@@ -4,13 +4,17 @@
 
 </p>
 
-<h1>Preparing Active Directory Infrastructure in Azure</h1>
-In this project, I create two virtual machines, one running Windows Server to act as a Domain Controller & DNS Server, and one running Windows 10 to act as the client. In later parts, I will deploy Active Directory, run a script that will create users in the domain that can be logged into from the client VM, manage the accounts and update group policies, simulating a real life IT environment!<br />
+<h1>Deploying Active Directory</h1>
+<br/>
+<h2>Description</h2>
+Description<br/>
 
 <h2>Environments and Technologies Used</h2>
 
-- Microsoft Azure (Virtual Machines)
+- Microsoft Azure
+- Virtual Machines
 - Remote Desktop Connection
+- Active Directory
 
 <h2>Operating Systems Used </h2>
 
