@@ -148,13 +148,13 @@ This project is a continuation of <a href="https://github.com/MindofLindstrom01/
 
 ![21  login as jane admin](https://github.com/user-attachments/assets/055e9cbf-8902-4fe1-99e8-6ffe3ca965f2)
 
-<p>Now login to the client VM as the newly created domain admin</p>
+<p>Now login to the client VM</p>
 
 <h3>Step 22.</h3>
 
 ![22  search system](https://github.com/user-attachments/assets/70f0a0fc-7130-4b69-a73a-eed96a24ae44)
 
-<p>Once inside the client VM as an admin, search and click System in the Windows search bar</p>
+<p>Once inside the client VM, search and click System in the Windows search bar</p>
 
 <h3>Step 23.</h3>
 
