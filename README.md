@@ -7,7 +7,9 @@
 <h1>Deploying Active Directory</h1>
 <br/>
 <h2>Description</h2>
-Description<br/>
+For this part of the Active Directory project, we will install Active Directory on the domain controller, create a domain admin, and join the client VM to the domain.<br/>
+
+This project is a continuation of link.
 
 <h2>Environments and Technologies Used</h2>
 
@@ -25,289 +27,181 @@ Description<br/>
 
 <h3>Step 1.</h3>
 
-![1  click create](https://github.com/user-attachments/assets/65050d87-88a2-4449-832c-524a20f5d03d)
+![1  server manager add features](https://github.com/user-attachments/assets/af068e14-5eea-495f-a86a-7ad393c160ca)
 
-<p>Go to resource groups in Azure and click Create</p>
+<p>Using the domain controller vm, search for Server Manager in the Windows Search bar and open it, then click "Add roles and features"</p>
 
 <h3>Step 2.</h3>
 
-![2  review   create](https://github.com/user-attachments/assets/7c5f795b-4ecb-4f11-a7a7-c4ec7d2c0289)
+![2  select AD domain services](https://github.com/user-attachments/assets/4d8de704-6c1c-43cf-a3d8-28b16c81e00a)
 
-<p>Name your resource group, select your region, then click Review+Create</p>
+<p>Click next until Server Roles, then check Active Directory Domain Services</p>
 
 <h3>Step 3.</h3>
 
-![3  create](https://github.com/user-attachments/assets/4d63a03c-85f6-49c0-9c9d-ad6a1e451d03)
+![3  click add features](https://github.com/user-attachments/assets/5729cfdd-8cd3-40b8-ac00-6da435d0e024)
 
-<p>Click create</p>
+<p>Click Add Features</p>
 
 <h3>Step 4.</h3>
 
-![4  search virtual network](https://github.com/user-attachments/assets/56c69879-2a8d-40fa-9e6d-b5617d87bb14)
+![4  click install](https://github.com/user-attachments/assets/e7fce37d-da8f-42fa-a8d7-8ab6a2c5bf90)
 
-<p>Search for virtual networks in Azure</p>
+<p>Check the box, then click install</p>
 
 <h3>Step 5.</h3>
 
-![5  click create](https://github.com/user-attachments/assets/d48a5931-2492-4ec6-bdee-b6d008f97255)
+![5  install success](https://github.com/user-attachments/assets/996c1b39-73be-4b5c-884b-9a173eeec1a6)
 
-<p>Click create virtual network</p>
+<p>The installation should have succeeded, click close, now a restart will take place</p>
 
 <h3>Step 6.</h3>
 
-![6  review   create vnet](https://github.com/user-attachments/assets/99d68892-f8b3-4643-bc2b-d0fbe25a4d8e)
+![6  promote to domain controller](https://github.com/user-attachments/assets/da0e2acb-4689-4ed3-9d62-640561674a51)
 
-<p>Select the resource group you created, name the Virtual Network, select the region, then click Review + create</p>
+<p>After logging back in to the vm, go to the Server Manager, click the flag in the top right corner, then click "Promote this server to a domain controller".</p>
 
 <h3>Step 7.</h3>
 
-![7  click create](https://github.com/user-attachments/assets/b543731b-65eb-4198-ae2b-32d1777b3653)
+![7  new forest](https://github.com/user-attachments/assets/b1f0c3a2-1bb4-4b54-bdfe-284e8bb0d3fb)
 
-<p>Click create</p>
+<p>Select Add a new forest, name the domain, then click next</p>
 
 <h3>Step 8.</h3>
 
-![8  VNet deployed](https://github.com/user-attachments/assets/5cdc118f-6ea4-46a1-ae25-cf0d5d292f12)
+![8  set pass](https://github.com/user-attachments/assets/66df412d-80cd-40c4-bdf9-4f3d05b64ec0)
 
-<p>The virtual network has sucessfully been deployed.</p>
+<p>Create a password for DSRM, then click Next</p>
 
 <h3>Step 9.</h3>
 
-![9  search virtual machines](https://github.com/user-attachments/assets/2d64a2d6-448d-4276-86b2-78e28f5cd61d)
+![9  click install](https://github.com/user-attachments/assets/278ae451-2d62-45d7-9de8-e0a18468ffb7)
 
-<p>Search and select virtual machines in Azure</p>
+<p>Click Install</p>
 
 <h3>Step 10.</h3>
 
-![10  click create vm](https://github.com/user-attachments/assets/dd7809b7-35cf-4eeb-a408-a14afd6a5c5f)
+![10  configuration successful](https://github.com/user-attachments/assets/451d00c0-5ed4-4cfe-b80b-eea27a80b466)
 
-<p>Click create Azure virtual machine</p>
+<p>Now this server should successfully be configured as a domain controller</p>
 
 <h3>Step 11.</h3>
 
-![11  dc settings](https://github.com/user-attachments/assets/902ca6d0-b2aa-4391-958b-024bcb20e4c9)
+![11  login as domain user](https://github.com/user-attachments/assets/a64b3fa3-38bc-4e5f-a8b2-fe560bbe0f86)
 
-<p>Select the resource group you created, name the virtual machine, select the region, choose Windows Server 2022 as the image, use a size of 2 vcpus, 8GiB memory. This vm will serve as our domain controller.</p>
+<p>Now attempt to log back in as a domain user using the domain name followed by the vm username</p>
 
 <h3>Step 12.</h3>
 
-![12  dc user pass](https://github.com/user-attachments/assets/0a781c85-f739-40d6-9b32-7dcc262fba58)
+![12  open ADUC](https://github.com/user-attachments/assets/17de8292-ce5c-4942-a0b1-74b45e02b812)
 
-<p>Create a username and password for this vm, then click Next: Disks ></p>
+<p>Once inside, search "Active Directory Users and Computers" inside the Windows search bar and click it</p>
 
 <h3>Step 13.</h3>
 
-![13  click next networking](https://github.com/user-attachments/assets/6ea97c5b-e7d1-49e4-87d2-c5d8352879a6)
+![13  create new org unit](https://github.com/user-attachments/assets/a56d16ea-8245-4027-a82d-98a7089b9e83)
 
-<p>Click Next : Networking ></p>
+<p>Right click the domain name, go to New, and click Organizational Unit</p>
 
 <h3>Step 14.</h3>
 
-![14  dc setup network](https://github.com/user-attachments/assets/7e568bd3-22e5-43e9-8ede-cfade4359fba)
+![14  org units created](https://github.com/user-attachments/assets/65772f3a-a4a7-4be2-af84-1a6989cfcd18)
 
-<p>Select the virtual network you created, choose the default subnet, then click Review + create</p>
+<p>Create two of these, one named _EMPLOYEES, and one named _ADMINS. These names must match exactly for the script to find them that we will use later</p>
 
 <h3>Step 15.</h3>
 
-![15  click create](https://github.com/user-attachments/assets/f137d64d-c637-4667-85ad-e8f4d4296e34)
+![15  create new admin](https://github.com/user-attachments/assets/f1025acf-3224-425e-a30b-0757a04bdbc4)
 
-<p>Click create</p>
+<p>Right click the newly created _ADMINS organizational unit, go to new, then click User</p>
 
 <h3>Step 16.</h3>
 
-![16  dc deployed](https://github.com/user-attachments/assets/2fb5b95b-2f5d-4d7a-bc94-36edf22085f6)
+![16  create username](https://github.com/user-attachments/assets/075c16e1-31d2-4509-af98-60292213e110)
 
-<p>The virtual machine Windows server that will act as our domain controller has now been deployed</p>
+<p>Fill out the first, last, user logon name, then click Next. This will be our admin for the domain controller</p>
 
 <h3>Step 17.</h3>
 
-![17  create another vm](https://github.com/user-attachments/assets/65df551b-b50a-4014-8ed3-f79e7d128c75)
+![17  set password](https://github.com/user-attachments/assets/d38d99c3-db18-4560-9f5d-eb44029a90ed)
 
-<p>Search virtual machines again and click create to make another one</p>
+<p>Set the password for the new User, check the boxes according to the image above, then click next. For the sake of the lab we don't want to expire or change the password.</p>
 
 <h3>Step 18.</h3>
 
-![18  client setup](https://github.com/user-attachments/assets/a0b26a99-d8a5-4642-b4dd-ccdb9c560610)
+![18  click finish](https://github.com/user-attachments/assets/ddcde4f2-1981-4ae1-99d5-ab23798bb5b4)
 
-<p>Select the resource group that was created, name the virtual machine, select the region, select Windows 10 Pro 22H2 as the image, select a size of 2vcpus and 8GiB memory. This virtual machine will serve as our client that we will later add to the domain controller</p>
+<p>Click Finish</p>
 
 <h3>Step 19.</h3>
 
-![19  client user   pass](https://github.com/user-attachments/assets/05cd23fb-a87c-4991-b51a-a6ec9321a5b3)
+![19  go to properties](https://github.com/user-attachments/assets/af0cfbac-12d5-4bba-b0fa-309cdfaaf9dc)
 
-<p>Create a username and password for the client vm, check the box, then click Next : Disks ></p>
+<p>Right click the newly created user and go to Properties</p>
 
 <h3>Step 20.</h3>
 
-![20  next networking](https://github.com/user-attachments/assets/850e9220-e792-4376-9e5a-3f3dfe6fe46e)
+![20  add jane to domain admins security group](https://github.com/user-attachments/assets/8ee03053-255b-416b-8bba-096e25c651cc)
 
-<p>Click Next : Networking ></p>
+<p>Click Member Of, click Add, type Domain Admins, click Check Names, click OK, then click Apply and OK. This will officially make this user an Admin of the domain.</p>
 
 <h3>Step 21.</h3>
 
-![21  review   create](https://github.com/user-attachments/assets/1c8b1492-d755-485b-a048-1dc8683ee98f)
+![21  login as jane admin](https://github.com/user-attachments/assets/055e9cbf-8902-4fe1-99e8-6ffe3ca965f2)
 
-<p>Select the virtual network we created earlier, select the default subnet, then click Review + create</p>
+<p>Now login to the client VM as the newly created domain admin</p>
 
 <h3>Step 22.</h3>
 
-![22  click create](https://github.com/user-attachments/assets/14b57468-5c21-4d0e-b064-11c7e427a20c)
+![22  search system](https://github.com/user-attachments/assets/70f0a0fc-7130-4b69-a73a-eed96a24ae44)
 
-<p>Click create</p>
+<p>Once inside the client VM as an admin, search and click System in the Windows search bar</p>
 
 <h3>Step 23.</h3>
 
-![23  client deployed](https://github.com/user-attachments/assets/9d03f149-3212-4e88-a859-0f28f7760d6c)
+![23  add client-1 to domain](https://github.com/user-attachments/assets/f3e9cfff-82a0-4d04-9a11-3f941973279a)
 
-<p>The virtual machine serving as our client has now been deployed</p>
+<p>Click "Rename this PC(advanced)", click Change, select Domain:, enter the name of the forest that was created, then click OK.</p>
 
 <h3>Step 24.</h3>
 
-![24  dc-1 network settings](https://github.com/user-attachments/assets/c1605581-5b95-44e1-8512-ee3b34d12bd2)
+![24  enter admin credentials](https://github.com/user-attachments/assets/12b25057-6137-4f4c-b586-60578dd201d6)
 
-<p>Go to the domain controller vm, go under networking, and click network settings</p>
+<p>Enter the admin credentials to officially join the client vm to the domain vm, then click OK</p>
 
 <h3>Step 25.</h3>
 
-![25  click NIC](https://github.com/user-attachments/assets/9f7ce47d-a63e-475e-9109-4afbbc9aec6d)
+![25  domain added success](https://github.com/user-attachments/assets/88c01a5b-00d5-4679-b65d-3950f38f5257)
 
-<p>Click on the Network Interface Card</p>
+<p>The client is now successfully apart of the domain</p>
 
 <h3>Step 26.</h3>
 
-![26  click ipconfig](https://github.com/user-attachments/assets/46f0a17e-503c-48df-b362-842e22a164cb)
+![26  client-1 showing up in AD users   computers](https://github.com/user-attachments/assets/88331d3c-50c4-4637-8e87-7edd19ae06d2)
 
-<p>Click on ipconfig1</p>
+<p>Go back to the domain controller vm, go to Active Directory Users and Computers, under the domain name click Computers. The client vm should now show up as part of the domain.</p>
 
 <h3>Step 27.</h3>
 
-![27  change to static](https://github.com/user-attachments/assets/b8bc44bd-7686-4eb5-b331-f139bdd126ce)
+![27  create new org unit](https://github.com/user-attachments/assets/5377c858-9b14-472d-9405-8ef30cf10859)
 
-<p>Change the private IP address to "static" then click save</p>
+<p>Right click the domain name and create a new Organizational Unit</p>
 
 <h3>Step 28.</h3>
 
-![28  private ip updated](https://github.com/user-attachments/assets/e4de78c8-bd08-411f-b973-3b57ed25b879)
+![28  name clients](https://github.com/user-attachments/assets/eb9a3745-8082-47bf-8c0b-32703cf3a9e0)
 
-<p>The private IP address should now be static. This ensures the private IP will never change, preventing any connectivity issues from the client vm to the domain controller vm in the future.</p>
+<p>Name this organizational unit _CLIENTS, then click OK</p>
 
 <h3>Step 29.</h3>
 
-![29  get dc-1 public ip](https://github.com/user-attachments/assets/e233878d-9c76-4c81-9467-0717bccf6cd1)
+![29  drag client-1 into clients OU](https://github.com/user-attachments/assets/d7609e02-488c-4c2f-bb79-ed4237a94f37)
 
-<p>Go back to networking of the domain controller, then grab the public IP address</p>
+<p>Drag the client vm into the _CLIENTS organizational unit</p>
 
-<h3>Step 30.</h3>
+<h2>Active Directory is Deployed!</h2>
 
-![30  connect with rdc](https://github.com/user-attachments/assets/fc24b34c-d64d-4fa7-a172-7416a68e2ab3)
-
-<p>Enter the public IP into Remote Desktop Connection, then click Connect</p>
-
-<h3>Step 31.</h3>
-
-![31  enter dc credentials](https://github.com/user-attachments/assets/f64dc190-6561-4af2-bf73-7e9a5147a9a5)
-
-<p>Enter the credentials for the domain controller vm, then click OK</p>
-
-<h3>Step 32.</h3>
-
-![32  go to windows firewall](https://github.com/user-attachments/assets/02a7c881-a937-4664-a8d7-8e50932194d1)
-
-<p>Once your inside the domain controller vm, type "wf.msc" into the windows search bar and click it</p>
-
-<h3>Step 33.</h3>
-
-![33  disable firewall](https://github.com/user-attachments/assets/4d46171a-0778-4199-8409-b1a1c27aca44)
-
-<p>This will take you to Windows Firewall. Click "Windows Defender Firewall Properties" then set the Firewall state to "Off" for Domain profile, Private profile, and Public profile. Then click Apply and OK. This is for intended lab purposes only</p>
-
-<h3>Step 34.</h3>
-
-![34  disabled](https://github.com/user-attachments/assets/24c67c59-d079-495d-a674-1e30bd24ddf0)
-
-<p>The firewall should now be disbaled for all profiles</p>
-
-<h3>Step 35.</h3>
-
-![35  get dc-1 private ip](https://github.com/user-attachments/assets/262d0a94-d7cf-473a-9d0a-8b46740e3b28)
-
-<p>Go back to Azure, go to the domain controller vm, go to Networking, then grab the private IP address</p>
-
-<h3>Step 36.</h3>
-
-![36  go to client-1 network settings](https://github.com/user-attachments/assets/f2dcbc89-eee4-45ce-be6b-cdba83db510f)
-
-<p>Now go to the client vm, Networking, and click network settings</p>
-
-<h3>Step 37.</h3>
-
-![37  go to client-1 NIC](https://github.com/user-attachments/assets/2dc4ba8f-f0f0-4b5e-9ceb-14746042b658)
-
-<p>Click the Network Interface Card</p>
-
-<h3>Step 38.</h3>
-
-![38  enter private ip](https://github.com/user-attachments/assets/8b7c8349-9859-4f2b-88f7-7c97c6cbe0c0)
-
-<p>Click DNS servers, select Custom, and enter the private IP address of the domain controller vm. This will set the domain controller vm as the DNS server for the client vm.</p>
-
-<h3>Step 39.</h3>
-
-![39  restart client-1](https://github.com/user-attachments/assets/a7acfbc6-e5c5-4381-8116-31b732b2d5b4)
-
-<p>Now go back to your virtual machines, select the client vm, click restart, then click Yes. This will apply the changes.</p>
-
-<h3>Step 40.</h3>
-
-![40  get client-1 public ip](https://github.com/user-attachments/assets/796140b3-c306-4762-8cd1-7ac306da3966)
-
-<p>Now go to the client vm's networking tab and grab the public IP address</p>
-
-<h3>Step 41.</h3>
-
-![41  enter ip into rdc](https://github.com/user-attachments/assets/5c312b50-548a-4446-be73-469eec98ab99)
-
-<p>Open remote desktop, enter the public IP of the client vm, then click Connect</p>
-
-<h3>Step 42.</h3>
-
-![42  enter client-1 credentials](https://github.com/user-attachments/assets/4d92c105-f699-4946-83bf-1fa2073f6787)
-
-<p>Enter the credentials of the client vm, then click OK</p>
-
-<h3>Step 43.</h3>
-
-![43  open up powershell](https://github.com/user-attachments/assets/2c6b904f-c1aa-4d31-a5aa-891d3a4fff84)
-
-<p>Once inside the client vm, type and open Windows Powershell</p>
-
-<h3>Step 44.</h3>
-
-![44  ping dc-1](https://github.com/user-attachments/assets/f754e146-63d6-4250-823e-b616dc45cbb3)
-
-<p>Ping the private IP address of the domain controller vm using the "ping" command to test connectivity</p>
-
-<h3>Step 45.</h3>
-
-![45  ping success](https://github.com/user-attachments/assets/81de23ad-3413-47f6-b0df-540282513331)
-
-<p>If every step was done right, the ping should have been successful</p>
-
-<h3>Step 46.</h3>
-
-![46  run ipconfig](https://github.com/user-attachments/assets/dde672ae-df96-4b3b-a124-1359b5864aad)
-
-<p>Now run the ipconfig /all command</p>
-
-<h3>Step 47.</h3>
-
-![47  DNS IP success](https://github.com/user-attachments/assets/c01cba43-a97b-4e3a-b9c1-a774b2796caa)
-
-<p>This should show that the domain controller vm is successfully serving as a DNS server to the client vm by using its private IP address</p>
-
-<h2>Active Directory Infrastructure Has Been Prepared!</h2>
-
-<p>In this part, we have successfully created two virtual machines, one running Windows Server to act as a Domain Controller & DNS Server, and one running Windows 10 to act as the client. In later parts, we will deploy Active Directory, run a script that will create users in the domain that can be logged into from the client VM, manage the accounts and update group policies, simulating a real life IT environment!</p>
+<p>In this part, we have successfully installed Active Directory on the domain controller, created a domain admin, and joined the client VM to the domain. Next, we will create users in Powershell by running a script, and then manage the accounts and group policy!</p>
 
 
 
