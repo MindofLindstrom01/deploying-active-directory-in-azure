@@ -198,7 +198,7 @@ This project is a continuation of <a href="https://github.com/MindofLindstrom01/
 
 <p>Drag the client vm into the _CLIENTS organizational unit</p>
 
-<h2>Active Directory is Deployed!</h2>
+<h2>Active Directory Is Deployed!</h2>
 
 <p>In this part, we have successfully installed Active Directory on the domain controller, created a domain admin, and joined the client VM to the domain. Next, we will create users in Powershell by running a script, and then manage the accounts and group policy!</p>
 <br>
