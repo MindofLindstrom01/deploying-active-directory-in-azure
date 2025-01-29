@@ -7,7 +7,7 @@
 <h1>Deploying Active Directory</h1>
 <h2>Description</h2>
 For this part of the Active Directory project, we will install Active Directory on the domain controller, create a domain admin, and join the client VM to the domain.<br/>
-
+<br/>
 This project is a continuation of <a href="https://github.com/MindofLindstrom01/Preparing-Active-Directory-Infrastructure-in-Azure">Active Directory: Preparing Infrastructure in Azure
 
 <h2>Environments and Technologies Used</h2>
