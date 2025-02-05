@@ -202,7 +202,7 @@ This project is a continuation of <a href="https://github.com/MindofLindstrom01/
 
 <p>In this part, we have successfully installed Active Directory on the domain controller, created a domain admin, and joined the client VM to the domain. Next, we will create users in Powershell by running a script, and then manage the accounts and group policy!</p>
 
-Next part: <a href="https://github.com/MindofLindstrom01/active-directory-creating-users-group-policy-and-managing-accounts">Active Directory: Creating Users, Group Policy, and Managing Accounts in Azure
+Next part: <a href="https://github.com/MindofLindstrom01/active-directory-group-policy">Active Directory: Creating Users, Group Policy, and Managing Accounts in Azure
 
 
 
